@@ -32,10 +32,6 @@ services:
         environment:
             MYSQL_DATABASE: sys
             MYSQL_ROOT_PASSWORD: root
-            MYSQL_ALLOW_EMPTY_PASSWORD: yes
-            MYSQL_USER: root
-            MYSQL_PASSWORD: root
-
         ports:
             - "3307:3306"
         volumes:
