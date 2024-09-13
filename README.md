@@ -1,6 +1,6 @@
 # Projeto Docker
 
-Este projeto utiliza Docker para simplificar o gerenciamento de containers e serviços do ambiente de desenvolvimento laravel. Este `README` fornece instruções sobre como usar os comandos disponíveis e os pré-requisitos necessários para executar o projeto.
+Este projeto utiliza Docker para simplificar o gerenciamento de containers e serviços do ambiente de desenvolvimento laravel utilizando `MYSQL` e `NGINX`. Este `README` fornece instruções sobre como usar os comandos disponíveis e os pré-requisitos necessários para executar o projeto.
 
 ## Pré-requisitos
 
@@ -8,6 +8,10 @@ Antes de começar, certifique-se de ter os seguintes pré-requisitos instalados 
 
 - **Docker**: Ferramenta de containerização. [Instalação do Docker](https://docs.docker.com/get-docker/)
 - **Docker Compose**: Ferramenta para definir e executar aplicativos Docker multi-containers. [Instalação do Docker Compose](https://docs.docker.com/compose/install/)
+- **Make**: Ferramenta para simplificar execução de multi-comandos, para obter em sua máquina:
+```bash
+sudo apt-get install make
+```
 
 ## Configuração Inicial
 
