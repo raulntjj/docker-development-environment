@@ -74,7 +74,13 @@ update:
 	- docker compose exec app composer update
 
 uninstall:
-	- rm -r /docker .dockerignore build.sh docker-compose.yaml entrypoint.sh README.md Makefile --force
+	- rm -r docker --force
+	- rm -r .dockerignore --force
+	- rm -r build.sh --force
+	- rm -r docker-compose.yaml --force
+	- rm -r entrypoint.sh --force
+	- rm -r README.md --force
+	- rm -r Makefile --force
 
 
 .PHONY: build kill start stop restart logs shell queue-shell test migrate install update clean down up reset uninstall
