@@ -7,4 +7,5 @@ docker compose exec app bash -c "
     php artisan key:generate &&
     php artisan migrate &&
     php artisan storage:link
+    sudo chmod -R 777 .
 "
