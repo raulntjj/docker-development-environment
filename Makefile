@@ -10,10 +10,12 @@ kill:
 	- docker compose stop queue
 	- docker compose stop nginx
 	- docker compose stop db
+	- docker compose stop myadmin
 	- docker compose rm app
 	- docker compose rm queue
 	- docker compose rm nginx
 	- docker compose rm db
+	- docker compose rm myadmin
 	- docker system prune -af --volumes
 	- docker system prune -a --volumes
 
@@ -23,18 +25,21 @@ start:
 	- docker compose start queue
 	- docker compose start nginx
 	- docker compose start db
+	- docker compose start myadmin
 
 stop:
 	- docker compose stop app
 	- docker compose stop queue
 	- docker compose stop nginx
 	- docker compose stop db
+	- docker compose stop myadmin
 
 restart:
 	- docker compose restart app
 	- docker compose restart queue
 	- docker compose restart nginx
 	- docker compose restart db
+	- docker compose restart myadmin
 
 logs:
 	- docker compose logs -f

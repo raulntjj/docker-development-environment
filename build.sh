@@ -12,4 +12,4 @@ add_host_entry() {
 }
 
 # Adicionando as entradas desejadas
-add_host_entry "127.0.0.1" "raulntjj.dev.com"
+add_host_entry "127.0.0.1" "ntjj.dev"

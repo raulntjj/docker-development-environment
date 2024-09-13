@@ -18,23 +18,16 @@ sudo apt-get install make
 1. **Clone o repositório**:
 
 ```bash
-git clone <URL_DO_REPOSITORIO>
-cd <NOME_DO_REPOSITORIO>
+git clone https://github.com/raulntjj/docker-development-environment
+cd docker-development-environment
 ```
 
-2. **Certifique-se de que o arquivo `build.sh` esteja executável**:
+2. **Contrua os containers, para isso utilize:**:
 
 ```bash
-chmod +x build.sh
+make build
 ```
 
-3. **Crie o arquivo `.env`**:
-
-    Se o arquivo `.env` não existir, copie o arquivo de exemplo para criar um:
-
-```bash
-cp .env.example .env
-```
 
 ## Comandos Disponíveis
 

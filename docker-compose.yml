@@ -41,6 +41,22 @@ services:
         networks:
             - laravel-11
 
+phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: myadmin
+    environment:
+        PMA_HOST: db
+        PMA_PORT: 3306
+        UPLOAD_LIMIT: 1024M
+        MEMORY_LIMIT: 1024M
+        MAX_EXECUTION_TIME: 300
+    ports:
+        - "8888:80"
+    depends_on:
+        - db
+    networks:
+        - laravel-11
+
     queue:
         container_name: 'queue'
         build:
