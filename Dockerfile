@@ -27,8 +27,9 @@ RUN pecl install -o -f redis \
     &&  rm -rf /tmp/pear \
     &&  docker-php-ext-enable redis
 
-# Entrypoint era exectuado pelo docker file, porém coloquei para ser feito no make file
-# WORKDIR /var/www
+WORKDIR /var/www
+
+RUN chmod -R 777 /var/www
 
 # COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 

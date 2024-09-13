@@ -6,40 +6,38 @@ build:
 	- ./entrypoint.sh
 
 kill:
-	- docker compose stop app
-	- docker compose stop queue
-	- docker compose stop nginx
-	- docker compose stop db
-	- docker compose stop myadmin
-	- docker compose rm app
-	- docker compose rm queue
-	- docker compose rm nginx
-	- docker compose rm db
-	- docker compose rm myadmin
+	- docker stop app
+	- docker stop queue
+	- docker stop nginx
+	- docker stop db
+	- docker stop myadmin
+	- docker rm app
+	- docker rm queue
+	- docker rm nginx
+	- docker rm db
+	- docker rm myadmin
 	- docker system prune -af --volumes
-	- docker system prune -a --volumes
-
 
 start:
-	- docker compose start app
-	- docker compose start queue
-	- docker compose start nginx
-	- docker compose start db
-	- docker compose start myadmin
+	- docker start app
+	- docker start queue
+	- docker start nginx
+	- docker start db
+	- docker start myadmin
 
 stop:
-	- docker compose stop app
-	- docker compose stop queue
-	- docker compose stop nginx
-	- docker compose stop db
-	- docker compose stop myadmin
+	- docker stop app
+	- docker stop queue
+	- docker stop nginx
+	- docker stop db
+	- docker stop myadmin
 
 restart:
-	- docker compose restart app
-	- docker compose restart queue
-	- docker compose restart nginx
-	- docker compose restart db
-	- docker compose restart myadmin
+	- docker restart app
+	- docker restart queue
+	- docker restart nginx
+	- docker restart db
+	- docker restart myadmin
 
 logs:
 	- docker compose logs -f

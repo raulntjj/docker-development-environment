@@ -15,11 +15,26 @@ sudo apt-get install make
 
 ## Configuração Inicial
 
-1. **Clone o repositório**:
+1. **Clone o repositório na pasta raíz do seu projeto**:
 
 ```bash
 git clone https://github.com/raulntjj/docker-development-environment
 cd docker-development-environment
+mv * .dockerignore ../
+cd ..
+rm -r docker-development-environment --force
+```
+
+Ao executar este bloco de comando os arquivos de configuração estarão em seus devidos locais para que funcione corretamente.
+
+2. **Defina uma .env.example (Se não possuir), e verifique as credênciais do banco (OBRIGATÓRIO POSSUIR UMA .env.example)**:
+```bash
+DB_CONNECTION=mysql
+DB_HOST=db
+DB_PORT=3306
+DB_DATABASE=sys
+DB_USERNAME=root
+DB_PASSWORD=root
 ```
 
 2. **Contrua os containers, para isso utilize:**:
@@ -27,7 +42,7 @@ cd docker-development-environment
 ```bash
 make build
 ```
-
+Ao realizar estes passos, seu ambiente estará configurado e instalado, com phpMyAdmin na porta 8888, nginx na porta 8989, e com mysql na porta 3306. 
 
 ## Comandos Disponíveis
 
