@@ -1,6 +1,6 @@
 # Projeto Docker
 
-Este projeto utiliza Docker para simplificar o gerenciamento de containers e serviços. Este `README` fornece instruções sobre como usar os comandos disponíveis e os pré-requisitos necessários para executar o projeto.
+Este projeto utiliza Docker para simplificar o gerenciamento de containers e serviços do ambiente de desenvolvimento laravel. Este `README` fornece instruções sobre como usar os comandos disponíveis e os pré-requisitos necessários para executar o projeto.
 
 ## Pré-requisitos
 
@@ -148,17 +148,17 @@ make down
 
 ### Subir Containers em Background
 
-    ```bash
-    make up
-    ```
+```bash
+make up
+```
 - Descrição: Inicia todos os containers em segundo plano.
 - Uso: Use para subir os containers em modo detach.
 
 ### Resetar Ambiente
 
-    ```bash
-    make reset
-    ```
+```bash
+make reset
+```
 - Descrição: Derruba e remove volumes e redes associadas, além de realizar uma limpeza completa.
 - Uso: Use para uma limpeza completa e reinicialização do ambiente.
 
