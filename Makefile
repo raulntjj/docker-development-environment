@@ -4,6 +4,8 @@ build:
 	- docker compose up -d
 	- chmod +x entrypoint.sh
 	- ./entrypoint.sh
+	- docker compose exec app php artisan migrate
+
 
 kill:
 	- docker stop app
@@ -71,5 +73,8 @@ install:
 update:
 	- docker compose exec app composer update
 
+uninstall:
+	- rm -r /docker .dockerignore build.sh docker-compose.yaml entrypoint.sh README.md Makefile --force
 
-.PHONY: build kill start stop restart logs shell queue-shell test migrate install update clean down up reset
+
+.PHONY: build kill start stop restart logs shell queue-shell test migrate install update clean down up reset uninstall

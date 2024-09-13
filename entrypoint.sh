@@ -1,11 +1,9 @@
 #!/bin/bash
 
-# Executa o bash dentro do container 'app' e roda os comandos necessários
-docker compose exec app bash -c "
-    composer install &&
-    cp .env.example .env &&
-    php artisan key:generate &&
-    php artisan migrate &&
-    php artisan storage:link
-    chmod -R 777 /var/www
-"
+cd /var/www
+
+composer update
+cp .env.example .env
+php artisan key:generate
+php artisan storage:link
+chmod -R 777 /var/www
