@@ -39,128 +39,128 @@ cp .env.example .env
 ```bash
 make build
 ```
-    Descrição: Executa o script build.sh, inicia os containers em segundo plano e executa o script entrypoint.sh.
-    Uso: Ideal para a configuração inicial do ambiente e para construir e iniciar todos os serviços necessários.
+- Descrição: Executa o script build.sh, inicia os containers em segundo plano e executa o script entrypoint.sh.
+- Uso: Ideal para a configuração inicial do ambiente e para construir e iniciar todos os serviços necessários.
 
 ### Parar e Remover Containers
 
 ```bash
 make kill
 ```
-    Descrição: Para e remove os containers e executa uma limpeza do sistema Docker.
-    Uso: Use para parar e remover todos os containers e limpar o sistema.
+- Descrição: Para e remove os containers e executa uma limpeza do sistema Docker.
+- Uso: Use para parar e remover todos os containers e limpar o sistema.
 
 ### Iniciar Containers
 
 ```bash
 make start
 ```
-    Descrição: Inicia os containers em segundo plano.
-    Uso: Use para iniciar os containers que estão parados.
+- Descrição: Inicia os containers em segundo plano.
+- Uso: Use para iniciar os containers que estão parados.
 
 ### Parar Containers
 
 ```bash
 make stop
 ```
-    Descrição: Para todos os containers.
-    Uso: Use para parar todos os containers em execução.
+- Descrição: Para todos os containers.
+- Uso: Use para parar todos os containers em execução.
 
 ### Reiniciar Containers
 
 ```bash
 make restart
 ```
-    Descrição: Reinicia todos os containers.
-    Uso: Use para reiniciar todos os containers em execução.
+- Descrição: Reinicia todos os containers.
+- Uso: Use para reiniciar todos os containers em execução.
 
 ### Visualizar Logs
 
 ```bash
 make logs
 ```
-    Descrição: Mostra os logs dos containers em tempo real.
-    Uso: Use para monitorar a saída dos logs dos containers.
+- Descrição: Mostra os logs dos containers em tempo real.
+- Uso: Use para monitorar a saída dos logs dos containers.
 
 ### Acessar o Shell do Container 'app'
 
 ```bash
 make shell
 ```
-    Descrição: Acessa o shell interativo do container app.
-    Uso: Use para realizar manutenção ou diagnósticos diretamente no container app.
+- Descrição: Acessa o shell interativo do container app.
+- Uso: Use para realizar manutenção ou diagnósticos diretamente no container app.
 
 ### Acessar o Shell do Container 'queue'
 
 ```bash
 make queue-shell
 ```
-    Descrição: Acessa o shell interativo do container queue.
-    Uso: Use para realizar manutenção ou diagnósticos diretamente no container queue.
+- Descrição: Acessa o shell interativo do container queue.
+- Uso: Use para realizar manutenção ou diagnósticos diretamente no container queue.
 
 ### Rodar Testes
 
 ```bash
 make test
 ```
-    Descrição: Executa os testes definidos no projeto Laravel.
-    Uso: Use para rodar os testes automatizados da aplicação.
+- Descrição: Executa os testes definidos no projeto Laravel.
+- Uso: Use para rodar os testes automatizados da aplicação.
 
 ### Executar Migrações
 
 ```bash
 make migrate
 ```
-    Descrição: Executa as migrações do banco de dados.
-    Uso: Use para aplicar alterações na estrutura do banco de dados.
+- Descrição: Executa as migrações do banco de dados.
+- Uso: Use para aplicar alterações na estrutura do banco de dados.
 
 ### Instalar Dependências
 
 ```bash
 make install
 ```
-    Descrição: Instala as dependências do Composer e gera a chave da aplicação.
-    Uso: Use para instalar todas as dependências e configurar a chave da aplicação.
+- Descrição: Instala as dependências do Composer e gera a chave da aplicação.
+- Uso: Use para instalar todas as dependências e configurar a chave da aplicação.
 
 ### Atualizar Dependências
 
 ```bash
 make update
 ```
-    Descrição: Atualiza as dependências do Composer.
-    Uso: Use para atualizar as dependências para suas versões mais recentes.
+- Descrição: Atualiza as dependências do Composer.
+- Uso: Use para atualizar as dependências para suas versões mais recentes.
 
 ### Limpar Volumes e Imagens Órfãs
 
 ```bash
 make clean
 ```
-    Descrição: Remove volumes e imagens Docker órfãs que não estão mais em uso.
-    Uso: Use para liberar espaço no disco removendo dados não utilizados.
+- Descrição: Remove volumes e imagens Docker órfãs que não estão mais em uso.
+- Uso: Use para liberar espaço no disco removendo dados não utilizados.
 
 ### Derrubar Containers
 
 ```bash
 make down
 ```
-    Descrição: Derruba todos os containers e redes associadas.
-    Uso: Use para parar e remover os containers, mas mantendo volumes e redes persistentes.
+- Descrição: Derruba todos os containers e redes associadas.
+- Uso: Use para parar e remover os containers, mas mantendo volumes e redes persistentes.
 
 ### Subir Containers em Background
 
     ```bash
     make up
     ```
-    Descrição: Inicia todos os containers em segundo plano.
-    Uso: Use para subir os containers em modo detach.
+- Descrição: Inicia todos os containers em segundo plano.
+- Uso: Use para subir os containers em modo detach.
 
 ### Resetar Ambiente
 
     ```bash
     make reset
     ```
-    Descrição: Derruba e remove volumes e redes associadas, além de realizar uma limpeza completa.
-    Uso: Use para uma limpeza completa e reinicialização do ambiente.
+- Descrição: Derruba e remove volumes e redes associadas, além de realizar uma limpeza completa.
+- Uso: Use para uma limpeza completa e reinicialização do ambiente.
 
 ### Contribuição
 
