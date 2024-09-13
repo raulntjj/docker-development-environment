@@ -1,0 +1,60 @@
+services:
+    app:
+        container_name: 'app'
+        build:
+            context: .
+            dockerfile: Dockerfile
+        restart: always
+        working_dir: /var/www/
+        volumes:
+            - ./:/var/www
+        networks:
+            - laravel-11
+
+    webserver:
+        image: nginx:alpine
+        container_name: 'nginx'
+        restart: always
+        ports:
+            - "8989:80"
+        volumes:
+            - ./:/var/www
+            - ./docker/nginx/:/etc/nginx/conf.d/
+        depends_on:
+            - app
+        networks:
+            - laravel-11
+
+    db:
+        container_name: 'db'
+        image: mysql:8.0.34
+        restart: always
+        environment:
+            MYSQL_DATABASE: sys
+            MYSQL_USER: root
+            MYSQL_PASSWORD: root
+            MYSQL_ROOT_PASSWORD: root
+        ports:
+            - "3307:3306"
+        volumes:
+            - ./.docker/dbdata:/var/lib/mysql
+        networks:
+            - laravel-11
+
+    queue:
+        container_name: 'queue'
+        build:
+            context: .
+            dockerfile: Dockerfile
+        restart: always
+        command: "php artisan queue:work"
+        volumes:
+            - ./:/var/www
+        depends_on:
+            - app
+        networks:
+            - laravel-11
+
+networks:
+    laravel-11:
+        driver: bridge
