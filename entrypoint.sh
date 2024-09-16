@@ -1,9 +1,8 @@
 #!/bin/bash
 
-cd /var/www
-
-composer update
-cp .env.example .env
-php artisan key:generate
-php artisan storage:link
-chmod -R 777 /var/www
+docker-compose exec app composer update
+docker-compose exec app chmod -R 777 .
+docker-compose exec app cp .env.example .env
+docker-compose exec app php artisan key:generate
+docker-compose exec app php artisan storage:link
+docker-compose exec app php artisan migrate --force
