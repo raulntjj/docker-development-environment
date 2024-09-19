@@ -31,10 +31,14 @@ WORKDIR /var/www
 
 RUN chmod -R 777 /var/www
 
-# COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+# Copiar o entrypoint para o container
+COPY /docker/entrypoint.sh /usr/local/bin/entrypoint.sh
 
-# RUN chmod +x /usr/local/bin/entrypoint.sh
+# Dar permissão de execução ao entrypoint
+RUN chmod +x /usr/local/bin/entrypoint.sh
 
-# ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+# Definir o entrypoint do container
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 
-# CMD ["php-fpm"]
+# Comando padrão, o php-fpm
+CMD ["php-fpm"]

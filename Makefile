@@ -1,45 +1,20 @@
 build:
-	- chmod +x build.sh
-	- ./build.sh
 	- docker compose up -d
-	- chmod +x entrypoint.sh
-	- ./entrypoint.sh
-	- docker compose exec app php artisan migrate
-
+	- docker compose logs -f
 
 kill:
-	- docker stop app
-	- docker stop queue
-	- docker stop nginx
-	- docker stop db
-	- docker stop myadmin
-	- docker rm app
-	- docker rm queue
-	- docker rm nginx
-	- docker rm db
-	- docker rm myadmin
+	- docker stop app queue nginx db myadmin
+	- docker rm app queue nginx db myadmin
 	- docker system prune -af --volumes
 
 start:
-	- docker start app
-	- docker start queue
-	- docker start nginx
-	- docker start db
-	- docker start myadmin
+	- docker start app queue nginx db myadmin
 
 stop:
-	- docker stop app
-	- docker stop queue
-	- docker stop nginx
-	- docker stop db
-	- docker stop myadmin
+	- docker stop app queue nginx db myadmin
 
 restart:
-	- docker restart app
-	- docker restart queue
-	- docker restart nginx
-	- docker restart db
-	- docker restart myadmin
+	- docker restart app queue nginx db myadmin
 
 logs:
 	- docker compose logs -f
