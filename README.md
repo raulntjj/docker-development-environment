@@ -20,7 +20,7 @@ sudo apt-get install make
 ```bash
 git clone https://github.com/raulntjj/docker-development-environment
 cd docker-development-environment
-mv * .dockerignore ../
+mv * docker/.dockerignore ../
 cd ..
 rm -r docker-development-environment --force
 ```

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Abort on any error (including if wait-for-it fails).
+# Reinicia a execução quando algum erro acontece
 set -e
 
 # Dentro do container, assegure-se de que as dependências estejam instaladas
@@ -14,16 +14,17 @@ if [ ! -f .env ]; then
 fi
 
 # Gera a chave da aplicação Laravel
-echo "Gerando chave do Laravel..."
+echo "Gerando chave da aplicação..."
 php artisan key:generate
 
 # Aguardando MYSQL iniciar
 echo "Aguardando MYSQL iniciar..."
-sleep 10
+sleep 30
 
 # Executa as migrações do banco de dados
 echo "Executando as migrações..."
 php artisan migrate --force
+echo "Permissões setadas"
 
 # Seta permissões para alterações no projeto
 echo "Setando permissões..."
