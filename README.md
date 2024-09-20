@@ -1,6 +1,6 @@
 # Projeto Docker
 
-Este projeto utiliza Docker para simplificar o gerenciamento de containers e serviços do ambiente de desenvolvimento laravel utilizando `MYSQL` e `NGINX`. Este `README` fornece instruções sobre como usar os comandos disponíveis e os pré-requisitos necessários para executar o projeto.
+Este projeto utiliza Docker para simplificar o gerenciamento de containers e serviços do ambiente de desenvolvimento laravel utilizando `MYSQL`, `PHPMYADMIN` e `NGINX`. Este `README` fornece instruções sobre como usar os comandos disponíveis e os pré-requisitos necessários para executar o projeto.
 
 ## Pré-requisitos
 
@@ -27,8 +27,19 @@ rm -r docker-development-environment --force
 
 Ao executar este bloco de comando os arquivos de configuração estarão em seus devidos locais para que funcione corretamente.
 
-2. **Defina uma .env.example (Se não possuir), e verifique as credênciais do banco (OBRIGATÓRIO POSSUIR UMA .env.example)**:
+2. **Configure o .env.docker se necessário, está no diretório "docker" (Opcional)**:
 ```bash
+# Por padrão:
+NGINX_PORT=8989
+MYADMIN_PORT=8888
+DB_PORT=3307
+DB_NAME=sys
+DB_PASS=root
+```
+3. **Defina uma .env.example (Se não possuir), e verifique as credênciais do banco (OBRIGATÓRIO POSSUIR UMA .env.example)**:
+```bash
+# Configure conforme o que você colocou no .env.docker, caso não tenha alterado,
+# deve estar desta forma
 DB_CONNECTION=mysql
 DB_HOST=db
 DB_PORT=3306
@@ -37,7 +48,7 @@ DB_USERNAME=root
 DB_PASSWORD=root
 ```
 
-2. **Contrua os containers, para isso utilize:**:
+4. **Contrua os containers, para isso utilize:**:
 
 ```bash
 sudo make build
