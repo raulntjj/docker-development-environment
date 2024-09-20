@@ -8,9 +8,9 @@ Antes de começar, certifique-se de ter os seguintes pré-requisitos instalados 
 
 - **Docker**: Ferramenta de containerização. [Instalação do Docker](https://docs.docker.com/get-docker/)
 - **Docker Compose**: Ferramenta para definir e executar aplicativos Docker multi-containers. [Instalação do Docker Compose](https://docs.docker.com/compose/install/)
-- **Make**: Ferramenta para simplificar execução de multi-comandos, para obter em sua máquina:
+sudo - **Make**: Ferramenta para simplificar execução de multi-comandos, para obter em sua máquina:
 ```bash
-sudo apt-get install make
+sudo sudo apt-get install make
 ```
 
 ## Configuração Inicial
@@ -20,7 +20,7 @@ sudo apt-get install make
 ```bash
 git clone https://github.com/raulntjj/docker-development-environment
 cd docker-development-environment
-mv * docker/.dockerignore ../
+mv * ../
 cd ..
 rm -r docker-development-environment --force
 ```
@@ -40,7 +40,7 @@ DB_PASSWORD=root
 2. **Contrua os containers, para isso utilize:**:
 
 ```bash
-make build
+sudo make build
 ```
 Ao realizar estes passos, seu ambiente estará configurado e instalado, com phpMyAdmin na porta 8888, nginx na porta 8989, e com mysql na porta 3306. 
 
@@ -49,7 +49,7 @@ Ao realizar estes passos, seu ambiente estará configurado e instalado, com phpM
 ### Construir e Iniciar Containers
 
 ```bash
-make build
+sudo make build
 ```
 - Descrição: Executa o script build.sh, inicia os containers em segundo plano e executa o script entrypoint.sh.
 - Uso: Ideal para a configuração inicial do ambiente e para construir e iniciar todos os serviços necessários.
@@ -57,7 +57,7 @@ make build
 ### Parar e Remover Containers
 
 ```bash
-make kill
+sudo make kill
 ```
 - Descrição: Para e remove os containers e executa uma limpeza do sistema Docker.
 - Uso: Use para parar e remover todos os containers e limpar o sistema.
@@ -65,7 +65,7 @@ make kill
 ### Iniciar Containers
 
 ```bash
-make start
+sudo make start
 ```
 - Descrição: Inicia os containers em segundo plano.
 - Uso: Use para iniciar os containers que estão parados.
@@ -73,7 +73,7 @@ make start
 ### Parar Containers
 
 ```bash
-make stop
+sudo make stop
 ```
 - Descrição: Para todos os containers.
 - Uso: Use para parar todos os containers em execução.
@@ -81,7 +81,7 @@ make stop
 ### Reiniciar Containers
 
 ```bash
-make restart
+sudo make restart
 ```
 - Descrição: Reinicia todos os containers.
 - Uso: Use para reiniciar todos os containers em execução.
@@ -89,7 +89,7 @@ make restart
 ### Visualizar Logs
 
 ```bash
-make logs
+sudo make logs
 ```
 - Descrição: Mostra os logs dos containers em tempo real.
 - Uso: Use para monitorar a saída dos logs dos containers.
@@ -97,7 +97,7 @@ make logs
 ### Acessar o Shell do Container 'app'
 
 ```bash
-make shell
+sudo make shell
 ```
 - Descrição: Acessa o shell interativo do container app.
 - Uso: Use para realizar manutenção ou diagnósticos diretamente no container app.
@@ -105,7 +105,7 @@ make shell
 ### Acessar o Shell do Container 'queue'
 
 ```bash
-make queue-shell
+sudo make queue-shell
 ```
 - Descrição: Acessa o shell interativo do container queue.
 - Uso: Use para realizar manutenção ou diagnósticos diretamente no container queue.
@@ -113,7 +113,7 @@ make queue-shell
 ### Rodar Testes
 
 ```bash
-make test
+sudo make test
 ```
 - Descrição: Executa os testes definidos no projeto Laravel.
 - Uso: Use para rodar os testes automatizados da aplicação.
@@ -121,7 +121,7 @@ make test
 ### Executar Migrações
 
 ```bash
-make migrate
+sudo make migrate
 ```
 - Descrição: Executa as migrações do banco de dados.
 - Uso: Use para aplicar alterações na estrutura do banco de dados.
@@ -129,7 +129,7 @@ make migrate
 ### Instalar Dependências
 
 ```bash
-make install
+sudo make install
 ```
 - Descrição: Instala as dependências do Composer e gera a chave da aplicação.
 - Uso: Use para instalar todas as dependências e configurar a chave da aplicação.
@@ -137,7 +137,7 @@ make install
 ### Atualizar Dependências
 
 ```bash
-make update
+sudo make update
 ```
 - Descrição: Atualiza as dependências do Composer.
 - Uso: Use para atualizar as dependências para suas versões mais recentes.
@@ -145,7 +145,7 @@ make update
 ### Limpar Volumes e Imagens Órfãs
 
 ```bash
-make clean
+sudo make clean
 ```
 - Descrição: Remove volumes e imagens Docker órfãs que não estão mais em uso.
 - Uso: Use para liberar espaço no disco removendo dados não utilizados.
@@ -153,7 +153,7 @@ make clean
 ### Derrubar Containers
 
 ```bash
-make down
+sudo make down
 ```
 - Descrição: Derruba todos os containers e redes associadas.
 - Uso: Use para parar e remover os containers, mas mantendo volumes e redes persistentes.
@@ -161,7 +161,7 @@ make down
 ### Subir Containers em Background
 
 ```bash
-make up
+sudo make up
 ```
 - Descrição: Inicia todos os containers em segundo plano.
 - Uso: Use para subir os containers em modo detach.
@@ -169,7 +169,7 @@ make up
 ### Resetar Ambiente
 
 ```bash
-make reset
+sudo make reset
 ```
 - Descrição: Derruba e remove volumes e redes associadas, além de realizar uma limpeza completa.
 - Uso: Use para uma limpeza completa e reinicialização do ambiente.
