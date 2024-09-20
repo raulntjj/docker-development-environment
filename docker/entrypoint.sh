@@ -18,7 +18,7 @@ fi
 
 # Gera a chave da aplicação Laravel
 echo "Gerando chave da aplicação..."
-php artisan key:generate
+php artisan key:generate --force
 echo "Chave gerada."
 
 # Aguardando MYSQL iniciar
@@ -34,6 +34,6 @@ echo "Setando permissões..."
 chmod -R 777 .
 echo "Permissões concedida."
 
-echo "Entrypoint executado."
+echo "Entrypoint finalizado."
 # Execute qualquer comando que tenha sido fornecido via docker-compose ou linha de comando
 exec "$@"
