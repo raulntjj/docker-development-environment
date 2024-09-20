@@ -1,6 +1,6 @@
 build:
 	- docker compose up -d
-	- docker compose logs -f
+	- docker compose logs app -f
 
 kill:
 	- docker stop app queue nginx db myadmin
@@ -50,12 +50,8 @@ update:
 
 uninstall:
 	- rm -r docker --force
-	- rm -r .dockerignore --force
-	- rm -r build.sh --force
-	- rm -r docker-compose.yaml --force
-	- rm -r entrypoint.sh --force
-	- rm -r README.md --force
-	- rm -r Makefile --force
-
+	- rm docker-compose.yml --force
+	- rm Dockerfile --force
+	- rm Makefile --force
 
 .PHONY: build kill start stop restart logs shell queue-shell test migrate install update clean down up reset uninstall
