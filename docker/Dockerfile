@@ -3,7 +3,6 @@ FROM php:8.2-fpm
 ARG user=admin
 ARG uid=1000
 
-RUN chmod +x /usr/local/bin/entrypoint.sh
 RUN apt-get update && apt-get install -y \
     git \
     curl \
@@ -33,7 +32,7 @@ WORKDIR /var/www
 RUN chmod -R 777 /var/www
 
 # Copiar o entrypoint para o container
-COPY ./entrypoint.sh /usr/local/bin/entrypoint.sh
+COPY ./docker/entrypoint.sh /usr/local/bin/entrypoint.sh
 
 # Dar permissão de execução ao entrypoint
 RUN chmod +x /usr/local/bin/entrypoint.sh

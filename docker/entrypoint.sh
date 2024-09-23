@@ -1,39 +1,41 @@
 #!/bin/bash
 
 # Reinicia a execução quando algum erro acontece
-echo "Executando entrypoint"
+echo "Running entrypoint"
 set -e
 
 # Instalando depedências
-echo "Executando composer install/update..."
+echo "Running composer install/update..."
 composer install || composer update
-echo "Dependências instaladas"
+echo "Dependencies installed"
 
 # Certifique-se de que o .env está presente
 if [ ! -f .env ]; then
-  echo "Copiando arquivo .env.example para .env"
+  echo "Copying .env.example to .env"
   cp .env.example .env
-  echo "Arquivo copiado."
+  echo "File copied."
 fi
 
 # Gera a chave da aplicação Laravel
-echo "Gerando chave da aplicação..."
+echo "Generating application key..."
 php artisan key:generate --force
-echo "Chave gerada."
+echo "Key generated."
 
 # Aguardando MYSQL iniciar
-echo "Aguardando MYSQL iniciar..."
+echo "Waiting for MYSQL to start..."
 sleep 30
-echo "MYSQL iniciado."
+echo "MYSQL started."
 
-# Executa as migrações do banco de dados
-echo "Executando as migrações..."
+# rodando migrations
+echo "Running migrations..."
 php artisan migrate --force
-# Seta permissões para alterações no projeto
-echo "Setando permissões..."
-chmod -R 777 .
-echo "Permissões concedida."
 
-echo "Entrypoint finalizado."
-# Execute qualquer comando que tenha sido fornecido via docker-compose ou linha de comando
+# Seta permissões para alterações no projeto
+echo "Setting permissions..."
+chmod -R 777 .
+echo "Permissions granted."
+
+echo "Entrypoint finished."
+
+# Executa qualquer comando que tenha sido fornecido via docker-compose ou linha de comando
 exec "$@"
