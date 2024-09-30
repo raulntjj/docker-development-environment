@@ -16,6 +16,11 @@ if [ ! -f .env ]; then
   echo "File copied."
 fi
 
+# Setando permissao para GIT no diretorio
+echo "Running command for git configs..."
+git config --global --add safe.directory /var/www
+echo "Git configured."
+
 # Gera a chave da aplicação Laravel
 echo "Generating application key..."
 php artisan key:generate --force

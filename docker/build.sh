@@ -16,6 +16,8 @@ add_host_entry() {
 
 add_host_entry "127.0.0.1" "raulntjj.com.br"
 
+export $(grep -v '^#' ./docker/.env.docker | xargs)
+
 # Verificando se a porta DB_está ocupada
 if lsof -Pi :$DB_PORT -sTCP:LISTEN -t >/dev/null ; then
   echo -e "\e[1;31mPort $DB_PORT is in use, stop the process occupying it or change the port.\e[0m"

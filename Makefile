@@ -1,6 +1,8 @@
 ENV_FILE = --env-file ./docker/.env.docker
 
 build:
+	- chmod +x ./docker/build.sh
+	- ./docker/build.sh
 	- docker compose $(ENV_FILE) up -d
 	- docker compose $(ENV_FILE) logs app -f
 
