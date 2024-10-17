@@ -4,43 +4,55 @@
 echo "Running entrypoint"
 set -e
 
+log_info() {
+    echo
+    echo -e "\e[1;36m$1\e[0m"
+    echo
+}
+
+log_success() {
+    echo
+    echo -e "\e[1;32m$1\e[0m"
+    echo
+}
+
 # Instalando depedências
-echo "Running composer install/update..."
+log_info "Running composer install/update..."
 composer install || composer update
-echo "Dependencies installed"
+log_success "Dependencies installed"
 
 # Certifique-se de que o .env está presente
 if [ ! -f .env ]; then
-  echo "Copying .env.example to .env"
+  log_info "Copying .env.example to .env"
   cp .env.example .env
-  echo "File copied."
+  log_success "File copied."
 fi
 
 # Setando permissao para GIT no diretorio
-echo "Running command for git configs..."
-git config --global --add safe.directory /var/www
-echo "Git configured."
+log_info "Running command for git configs..."
+git config --global --add safe.directory /var/www/
+log_success "Git configured."
 
 # Gera a chave da aplicação Laravel
-echo "Generating application key..."
+log_info "Generating application key..."
 php artisan key:generate --force
-echo "Key generated."
+log_success "Key generated."
 
 # Aguardando MYSQL iniciar
-echo "Waiting for MYSQL to start..."
+log_info "Waiting for MYSQL to start..."
 sleep 30
-echo "MYSQL started."
+log_success "MYSQL started."
 
 # rodando migrations
-echo "Running migrations..."
+log_info "Running migrations..."
 php artisan migrate --force
 
 # Seta permissões para alterações no projeto
-echo "Setting permissions..."
+log_info "Setting permissions..."
 chmod -R 777 .
-echo "Permissions granted."
+log_success "Permissions granted."
 
-echo "Entrypoint finished."
+log_success "Entrypoint finished."
 
 # Executa qualquer comando que tenha sido fornecido via docker-compose ou linha de comando
 exec "$@"
