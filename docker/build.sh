@@ -12,21 +12,6 @@ log_success() {
     echo
 }
 
-# Função para verificiar se host foi criado, caso não cria o host
-add_host_entry() {
-    IP="$1"
-    HOSTNAME="$2"
-
-    if grep -q "$IP $HOSTNAME" /etc/hosts; then
-       log_info "Host ready for connection"
-    else
-        echo "Adding $IP $HOSTNAME to /etc/hosts..."
-        echo "$IP $HOSTNAME" | sudo tee -a /etc/hosts > /dev/null
-       log_info "Host added and ready for connection"
-    fi
-}
-add_host_entry "127.0.0.1" "raulntjj.com.br"
-
 export $(grep -v '^#' ./docker/.env.docker | xargs)
 
 # Verificando se a porta DB_está ocupada
